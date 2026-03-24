@@ -1,4 +1,4 @@
-#include <gaal/vec3.h>
+#include <rawmath/vec3.h>
 #include <stdio.h>
 #include <math.h>
 
