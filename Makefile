@@ -32,8 +32,10 @@ test_scale: tests/test_scale.c $(SRC_VEC)
 test_reflect: tests/test_reflect.c $(SRC_VEC)
 	$(CC) $(CFLAGS) tests/test_reflect.c $(SRC_VEC) -o test_reflect
 
+test_triple_product: tests/test_triple_product.c $(SRC_VEC)
+	$(CC) $(CFLAGS) tests/test_triple_product.c $(SRC_VEC) -o test_triple_product
 
-test: test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect
+test: test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product
 	@echo "---- Iniciando testes ----"
 	./test_create
 	./test_add
@@ -44,7 +46,8 @@ test: test_create test_add test_sub test_dot_product test_cross_product test_equ
 	./test_negate
 	./test_scale
 	./test_reflect
+	./test_triple_product
 	@echo "---- Testes finalizados ----"
 
 clean:
-	rm -f test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect
+	rm -f test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product

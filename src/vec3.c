@@ -58,10 +58,16 @@ void vec3_negate(vec3_t *v)
 void vec3_reflect(vec3_t *r, const vec3_t *a, const vec3_t *b)
 {
     float p = 2.f * vec3_dot_product(a, b);
-    
-    r->x = a->x - p*b->x;
-    r->y = a->y - p*b->y;
-    r->z = a->z - p*b->z;
+
+    r->x = a->x - p * b->x;
+    r->y = a->y - p * b->y;
+    r->z = a->z - p * b->z;
+}
+
+float vec3_triple_product(vec3_t *a, vec3_t *b, vec3_t *c)
+{
+    vec3_t cross_product = vec3_cross_product(b, c);
+    return vec3_dot_product(a, &cross_product);
 }
 
 void vec3_print(vec3_t *v, const char *txt)
