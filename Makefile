@@ -3,39 +3,44 @@ CFLAGS = -Wall -Wextra -I./include
 
 SRC_VEC = src/vec3.c
 
+LDFLAGS = -lm
+
 all: test
 
 test_create: tests/test_create.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_create.c $(SRC_VEC) -o test_create
+	$(CC) $(CFLAGS) tests/test_create.c $(SRC_VEC) -o test_create $(LDFLAGS)
 
 test_add: tests/test_add.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_add.c $(SRC_VEC) -o test_add
+	$(CC) $(CFLAGS) tests/test_add.c $(SRC_VEC) -o test_add $(LDFLAGS)
 
 test_sub: tests/test_sub.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_sub.c $(SRC_VEC) -o test_sub
+	$(CC) $(CFLAGS) tests/test_sub.c $(SRC_VEC) -o test_sub $(LDFLAGS)
 
 test_dot_product: tests/test_dot_product.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_dot_product.c $(SRC_VEC) -o test_dot_product
+	$(CC) $(CFLAGS) tests/test_dot_product.c $(SRC_VEC) -o test_dot_product $(LDFLAGS)
 
 test_cross_product: tests/test_cross_product.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_cross_product.c $(SRC_VEC) -o test_cross_product
+	$(CC) $(CFLAGS) tests/test_cross_product.c $(SRC_VEC) -o test_cross_product $(LDFLAGS)
 
 test_equals: tests/test_equals.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_equals.c $(SRC_VEC) -o test_equals
+	$(CC) $(CFLAGS) tests/test_equals.c $(SRC_VEC) -o test_equals $(LDFLAGS)
 
 test_negate: tests/test_negate.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_negate.c $(SRC_VEC) -o test_negate
+	$(CC) $(CFLAGS) tests/test_negate.c $(SRC_VEC) -o test_negate $(LDFLAGS)
 
 test_scale: tests/test_scale.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_scale.c $(SRC_VEC) -o test_scale
+	$(CC) $(CFLAGS) tests/test_scale.c $(SRC_VEC) -o test_scale $(LDFLAGS)
 
 test_reflect: tests/test_reflect.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_reflect.c $(SRC_VEC) -o test_reflect
+	$(CC) $(CFLAGS) tests/test_reflect.c $(SRC_VEC) -o test_reflect $(LDFLAGS)
 
 test_triple_product: tests/test_triple_product.c $(SRC_VEC)
-	$(CC) $(CFLAGS) tests/test_triple_product.c $(SRC_VEC) -o test_triple_product
+	$(CC) $(CFLAGS) tests/test_triple_product.c $(SRC_VEC) -o test_triple_product $(LDFLAGS)
 
-test: test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product
+test_magnitude: tests/test_magnitude.c $(SRC_VEC)
+	$(CC) $(CFLAGS) tests/test_magnitude.c $(SRC_VEC) -o test_magnitude $(LDFLAGS)
+
+test: test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product test_magnitude
 	@echo "---- Iniciando testes ----"
 	./test_create
 	./test_add
@@ -47,7 +52,8 @@ test: test_create test_add test_sub test_dot_product test_cross_product test_equ
 	./test_scale
 	./test_reflect
 	./test_triple_product
+	./test_magnitude
 	@echo "---- Testes finalizados ----"
 
 clean:
-	rm -f test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product
+	rm -f test_create test_add test_sub test_dot_product test_cross_product test_equals test_negate test_scale test_reflect test_triple_product test_magnitude

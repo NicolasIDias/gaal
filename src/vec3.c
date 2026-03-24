@@ -70,6 +70,15 @@ float vec3_triple_product(const vec3_t *a, const vec3_t *b, const vec3_t *c)
     return vec3_dot_product(a, &cross_product);
 }
 
+float vec3_magnitude(const vec3_t *v)
+{
+    float p1 = v->x * v->x;
+    float p2 = v->y * v->y;
+    float p3 = v->z * v->z;
+
+    return sqrtf(p1 + p2 + p3);
+}
+
 void vec3_print(vec3_t *v, const char *txt)
 {
     printf("%s: (%.2f, %.2f, %.2f)\n", txt, v->x, v->y, v->z);
