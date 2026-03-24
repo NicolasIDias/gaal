@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <gaal/vec3.h>
 
-int main() {
+int main()
+{
     vec3_t u = vec3_create(2.0f, 0.0f, 1.0f);
     vec3_t v = vec3_create(1.0f, 2.0f, -1.0f);
 
@@ -14,7 +15,9 @@ int main() {
 
     vec3_t vec = vec3_cross_product(&u, &v);
     vec3_print(&vec, "Produto ortogonal U, V");
-
+    
+    vec3_scale(3.22f, &vec);
+    vec3_print(&vec, "Scaled vec");
 
     return 0;
 }

@@ -13,3 +13,4 @@ vec3_t vec3_sub(vec3_t a, vec3_t b);
 void vec3_print(vec3_t *v, const char *txt);
 float vec3_dot_product(vec3_t *u, vec3_t *v);
 vec3_t vec3_cross_product(vec3_t *a, vec3_t *b);
+void vec3_scale(float scalar, vec3_t *v);
