@@ -64,7 +64,7 @@ void vec3_reflect(vec3_t *r, const vec3_t *a, const vec3_t *b)
     r->z = a->z - p * b->z;
 }
 
-float vec3_triple_product(vec3_t *a, vec3_t *b, vec3_t *c)
+float vec3_triple_product(const vec3_t *a, const vec3_t *b, const vec3_t *c)
 {
     vec3_t cross_product = vec3_cross_product(b, c);
     return vec3_dot_product(a, &cross_product);
