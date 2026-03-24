@@ -89,8 +89,7 @@ vec3_t vec3_lerp(vec3_t a, vec3_t b, float t)
     return vec3_create(
         a.x + (b.x - a.x) * t,
         a.y + (b.y - a.y) * t,
-        a.z + (b.z - a.z) * t
-    );
+        a.z + (b.z - a.z) * t);
 }
 
 void vec3_normalize(vec3_t *v)
@@ -103,6 +102,19 @@ void vec3_normalize(vec3_t *v)
         v->y *= inv_magnitude;
         v->z *= inv_magnitude;
     }
+}
+
+float vec3_clamp(float val, float min, float max)
+{
+    if (val < min)
+    {
+        val = min;
+    }
+    else if (val > max)
+    {
+        val = max;
+    }
+    return val;
 }
 
 void vec3_print(vec3_t v, const char *txt)
