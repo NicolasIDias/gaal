@@ -55,13 +55,13 @@ void vec3_negate(vec3_t *v)
     v->z *= -1;
 }
 
-vec3_t vec3_mul_inner(vec3_t *a, vec3_t *b)
+void vec3_reflect(vec3_t *r, const vec3_t *a, const vec3_t *b)
 {
-    vec3_t v;
-    v.x = a->x * b->x;
-    v.y = a->y * b->y;
-    v.z = a->z * b->z;
-    return v;
+    float p = 2.f * vec3_dot_product(a, b);
+    
+    r->x = a->x - p*b->x;
+    r->y = a->y - p*b->y;
+    r->z = a->z - p*b->z;
 }
 
 void vec3_print(vec3_t *v, const char *txt)
