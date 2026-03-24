@@ -12,5 +12,9 @@ int main() {
     float dot = vec3_dot_product(&u, &v);
     printf("Produto Escalar (u . v): %.2f\n", dot);
 
+    vec3_t vec = vec3_cross_product(&u, &v);
+    vec3_print(&vec, "Produto ortogonal U, V");
+
+
     return 0;
 }

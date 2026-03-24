@@ -21,6 +21,14 @@ float vec3_dot_product(vec3_t *u, vec3_t *v)
     return (u->x * v->x) + (u->y * v->y) + (u->z * v->z);
 }
 
+vec3_t vec3_cross_product(vec3_t *a, vec3_t *b){
+    vec3_t v;
+    v.x = (a->y*b->z) - (a->z*b->y);
+    v.y = (a->z*b->x) - (a->x*b->z);
+    v.z = (a->x*b->y) - (a->y*b->x);
+    return v;
+}
+
 void vec3_print(vec3_t *v, const char *txt)
 {
     printf("%s: (%.2f, %.2f, %.2f)\n", txt, v->x, v->y, v->z);
