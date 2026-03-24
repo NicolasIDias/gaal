@@ -55,6 +55,15 @@ void vec3_negate(vec3_t *v)
     v->z *= -1;
 }
 
+vec3_t vec3_mul_inner(vec3_t *a, vec3_t *b)
+{
+    vec3_t v;
+    v.x = a->x * b->x;
+    v.y = a->y * b->y;
+    v.z = a->z * b->z;
+    return v;
+}
+
 void vec3_print(vec3_t *v, const char *txt)
 {
     printf("%s: (%.2f, %.2f, %.2f)\n", txt, v->x, v->y, v->z);

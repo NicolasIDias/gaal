@@ -17,3 +17,4 @@ vec3_t vec3_cross_product(vec3_t *a, vec3_t *b);
 void vec3_scale(float scalar, vec3_t *v);
 int vec3_equals(vec3_t *a, vec3_t *b);
 void vec3_negate(vec3_t *v);
+vec3_t vec3_mul_inner(vec3_t *a, vec3_t *b)
