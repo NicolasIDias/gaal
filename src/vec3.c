@@ -1,5 +1,6 @@
 #include <gaal/vec3.h>
 #include <stdio.h>
+#include <math.h>
 
 vec3_t vec3_create(float x, float y, float z)
 {
@@ -35,6 +36,23 @@ void vec3_scale(float scalar, vec3_t *v)
     v->x *= scalar;
     v->y *= scalar;
     v->z *= scalar;
+}
+
+int vec3_equals(vec3_t *a, vec3_t *b)
+{
+    return (
+               (fabsf(a->x - b->x) < VEC3_EPSILON) &&
+               (fabsf(a->y - b->y) < VEC3_EPSILON) &&
+               (fabsf(a->z - b->z) < VEC3_EPSILON))
+               ? 1
+               : 0;
+}
+
+void vec3_negate(vec3_t *v)
+{
+    v->x *= -1;
+    v->y *= -1;
+    v->z *= -1;
 }
 
 void vec3_print(vec3_t *v, const char *txt)
