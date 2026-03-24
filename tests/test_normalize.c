@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <math.h>
 
-int main(void)
+int main()
 {
     vec3_t v1 = vec3_create(1.0f, 0.0f, 0.0f);
     vec3_normalize(&v1);

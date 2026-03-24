@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-int main() {
+int main()
+{
     vec3_t a = vec3_create(0.0f, 0.0f, 0.0f);
     vec3_t b = vec3_create(10.0f, 20.0f, 30.0f);
 
