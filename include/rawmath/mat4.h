@@ -9,5 +9,7 @@ typedef struct mat4
 
 } mat4_t;
 
-mat4_t mat4_identity(mat4_t *dest);
+void mat4_identity(mat4_t *dest);
 void mat4_mul(const mat4_t *a, const mat4_t *b, mat4_t *dest);
+
+void mat4_print(const mat4_t *mat);

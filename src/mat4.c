@@ -1,7 +1,7 @@
 #include <rawmath/mat4.h>
 #include <rawmath/vec3.h>
 
-mat4_t mat4_identity(mat4_t *dest)
+void mat4_identity(mat4_t *dest)
 {
     mat4_t mat = {0};
 
@@ -38,4 +38,15 @@ void mat4_mul(const mat4_t *a, const mat4_t *b, mat4_t *dest)
     temp.m[MAT_IDX(3, 3)] = (a->m[MAT_IDX(3, 0)] * b->m[MAT_IDX(0, 3)]) + (a->m[MAT_IDX(3, 1)] * b->m[MAT_IDX(1, 3)]) + (a->m[MAT_IDX(3, 2)] * b->m[MAT_IDX(2, 3)]) + (a->m[MAT_IDX(3, 3)] * b->m[MAT_IDX(3, 3)]);
 
     *dest = temp;
+}
+
+void mat4_print(const mat4_t *mat)
+{
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+            printf("%8.2f", mat->m[MAT_IDX(i, j)]);
+        printf("\n");
+    }
+    printf("\n");   
 }
