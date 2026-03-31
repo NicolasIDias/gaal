@@ -103,6 +103,17 @@ void mat4_transpose(const mat4_t * restrict a, mat4_t * restrict dest)
     dest->m[MAT_IDX(3,3)] = a->m[MAT_IDX(3,3)];
 }
 
+void mat4_scale(mat4_t *dest, const mat4_t *a, float sx, float sy, float sz) {
+    mat4_t mat = {0};
+
+    mat.m[MAT_IDX(0, 0)] = sx;
+    mat.m[MAT_IDX(1, 1)] = sy;
+    mat.m[MAT_IDX(2, 2)] = sz;
+    mat.m[MAT_IDX(3, 3)] = 1.0f;
+
+    mat4_mul(a, &mat, dest);
+}
+
 void mat4_print(const mat4_t *mat)
 {
     for (int i = 0; i < 4; i++)

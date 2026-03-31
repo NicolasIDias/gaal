@@ -14,6 +14,7 @@ void mat4_mul(const mat4_t *a, const mat4_t *b, mat4_t *dest);
 void mat4_add(const mat4_t *a, const mat4_t *b, mat4_t *dest);
 void mat4_sub(const mat4_t *a, const mat4_t *b, mat4_t *dest);
 
-void mat4_transpose(const mat4_t *a, mat4_t *dest);
+void mat4_transpose(const mat4_t * restrict a, mat4_t * restrict dest);
+void mat4_scale(const mat4_t *a, mat4_t *dest);
 
 void mat4_print(const mat4_t *mat);
