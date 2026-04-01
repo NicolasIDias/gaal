@@ -151,6 +151,7 @@ void mat4_rotate(mat4_t *dest, const mat4_t *a, vec3_t axis, float angle_rad)
     mat.m[MAT_IDX(1, 2)] = t * y * z - s * x;
     mat.m[MAT_IDX(2, 0)] = t * x * z - s * y;
     mat.m[MAT_IDX(2, 1)] = t * y * z + s * x;
+    mat.m[MAT_IDX(2, 2)] = t * z * z + c;
 
     mat4_mul(a, &mat, dest);
 }
