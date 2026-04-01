@@ -83,7 +83,7 @@ void mat4_sub(mat4_t *dest, const mat4_t *a, const mat4_t *b)
 }
 
 // Nao e inplace
-void mat4_transpose(const mat4_t *restrict a, mat4_t *restrict dest)
+void mat4_transpose(mat4_t *restrict dest, const mat4_t *restrict a)
 {
     dest->m[MAT_IDX(0, 0)] = a->m[MAT_IDX(0, 0)];
     dest->m[MAT_IDX(0, 1)] = a->m[MAT_IDX(1, 0)];
