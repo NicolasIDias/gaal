@@ -51,6 +51,7 @@ mat4_scale(&model, &model, 2.0f, 2.0f, 2.0f);
 | `mat4_translate(dest, a, tx, ty, tz)` | Matrix translation |
 | `mat4_rotate(dest, a, axis, angle_rad)` | Matrix rotation |
 | `mat4_perspective(dest, fov_y_rad, aspect, near, far)` | Builds perspective projection |
+| `mat4_look_at(dest, eye, center, up)` | Builds view matrix |
 
 ## Memory Layout
 
@@ -63,7 +64,6 @@ Matrices are stored in **column-major** order, matching OpenGL convention.
 
 ## Roadmap
 
-- [ ] `mat4_lookat`
 - [ ] `vec4` support
 
 ## License
