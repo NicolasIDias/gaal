@@ -179,6 +179,34 @@ void mat4_perspective(mat4_t *dest, float fov_y_rad, float aspect, float near, f
     *dest = mat;
 }
 
+void mat4_look_at(mat4_t *dest, vec3_t eye, vec3_t center, vec3_t up)
+{
+    vec3_t F = vec3_sub(center, eye);
+    vec3_normalize(&F);
+
+    vec3_t R = vec3_cross_product(F, up);
+    vec3_normalize(&R);
+
+    vec3_t U = vec3_cross_product(R, F);
+
+    dest->m[MAT_IDX(0, 0)] = R.x;
+    dest->m[MAT_IDX(0, 1)] = R.y;
+    dest->m[MAT_IDX(0, 2)] = R.z;
+    dest->m[MAT_IDX(0, 3)] = -vec3_dot_product(R, eye);
+    dest->m[MAT_IDX(1, 0)] = U.x;
+    dest->m[MAT_IDX(1, 1)] = U.y;
+    dest->m[MAT_IDX(1, 2)] = U.z;
+    dest->m[MAT_IDX(1, 3)] = -vec3_dot_product(U, eye);
+    dest->m[MAT_IDX(2, 0)] = -F.x;
+    dest->m[MAT_IDX(2, 1)] = -F.y;
+    dest->m[MAT_IDX(2, 2)] = -F.z;
+    dest->m[MAT_IDX(2, 3)] = vec3_dot_product(F, eye);
+    dest->m[MAT_IDX(3, 0)] = 0;
+    dest->m[MAT_IDX(3, 1)] = 0;
+    dest->m[MAT_IDX(3, 2)] = 0;
+    dest->m[MAT_IDX(3, 3)] = 1.0f;
+}
+
 void mat4_print(const mat4_t *mat)
 {
     for (int i = 0; i < 4; i++)
