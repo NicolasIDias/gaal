@@ -16,7 +16,7 @@ int main()
 
     mat4_identity(&mat);
     axis = vec3_create(0.0f, 0.0f, 1.0f);
-    mat4_rotate(&mat, &result, axis, 0.0f);
+    mat4_rotate(&result, &mat, axis, 0.0f);
 
     assert(fabsf(result.m[MAT_IDX(0, 0)] - 1.0f) < EPSILON);
     assert(fabsf(result.m[MAT_IDX(1, 1)] - 1.0f) < EPSILON);
@@ -25,7 +25,7 @@ int main()
 
     mat4_identity(&mat);
     axis = vec3_create(0.0f, 0.0f, 1.0f);
-    mat4_rotate(&mat, &result, axis, M_PI / 2.0f);
+    mat4_rotate(&result, &mat, axis, M_PI / 2.0f);
 
     assert(fabsf(result.m[MAT_IDX(0, 0)]) < EPSILON);
     assert(fabsf(result.m[MAT_IDX(1, 1)]) < EPSILON);
@@ -33,7 +33,7 @@ int main()
 
     mat4_identity(&mat);
     axis = vec3_create(1.0f, 0.0f, 0.0f);
-    mat4_rotate(&mat, &result, axis, M_PI);
+    mat4_rotate(&result, &mat, axis, M_PI);
 
     assert(fabsf(result.m[MAT_IDX(0, 0)] - 1.0f) < EPSILON);
     assert(fabsf(result.m[MAT_IDX(1, 1)] + 1.0f) < EPSILON);
