@@ -64,7 +64,7 @@ Matrices are stored in **column-major** order, matching OpenGL convention.
 
 ## Roadmap
 
-- [ ] `vec4` support
+- [ ] `vec2` support
 
 ## License
 
