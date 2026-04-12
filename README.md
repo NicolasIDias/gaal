@@ -65,6 +65,11 @@ Matrices are stored in **column-major** order, matching OpenGL convention.
 ## Roadmap
 
 - [ ] `vec2` support
+- [ ] `vec4` support
+- [ ] quaternion utilities
+- [ ] `mat3` support
+- [ ] examples / docs actualizados
+- [ ] publicar v1.0.0
 
 ## License
 
