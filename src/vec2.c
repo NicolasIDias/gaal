@@ -43,7 +43,7 @@ vec2_t vec2_mul(vec2_t a, vec2_t b)
 
 float vec2_dot_product(vec2_t a, vec2_t b)
 {
-    return (a.x * b.x) * (a.y * b.y);
+    return (a.x * b.x) + (a.y * b.y);
 }
 
 float vec2_magnitude(vec2_t a)
