@@ -6,6 +6,7 @@ CFLAGS  := -Wall -Wextra -Werror -pedantic -std=c99 -I./include \
            -Wfloat-equal -Wcast-qual -Wpointer-arith              \
            -fstack-protector-strong -fno-common
 LDFLAGS := -lm
+VALGRIND := valgrind --leak-check=full --show-leak-kinds=all --errors-for-leak-kinds=all --error-exitcode=1
 
 SRC_DIR   := src
 TEST_DIR  := tests
@@ -20,7 +21,7 @@ TEST_SRCS := $(wildcard $(TEST_DIR)/vec2/test_*.c) $(wildcard $(TEST_DIR)/vec3/t
 TEST_OBJS := $(TEST_SRCS:.c=.o)
 TESTS     := $(TEST_SRCS:.c=)
 
-.PHONY: all test clean
+.PHONY: all test valgrind clean
 
 all: test
 
@@ -38,6 +39,13 @@ test: $(SRC_OBJS)
 		"$$exe" || exit $$?; \
 	done
 	@echo "---- Testes finalizados ----"
+
+valgrind: test
+	@echo "---- Iniciando Valgrind ----"
+	@for exe in $(TESTS); do \
+		echo "---- VALGRIND $$exe ----"; \
+		$(VALGRIND) "$$exe"; \
+	done
 
 clean:
 	rm -f $(TESTS) $(TEST_OBJS) $(SRC_OBJS)
