@@ -1,5 +1,10 @@
 CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror -pedantic -std=c99 -I./include
+CFLAGS  := -Wall -Wextra -Werror -pedantic -std=c99 -I./include \
+           -Wshadow -Wformat=2 -Wconversion -Wstrict-prototypes  \
+           -Wmissing-prototypes -Wnull-dereference                \
+           -Wdouble-promotion -Wundef -Wwrite-strings             \
+           -Wfloat-equal -Wcast-qual -Wpointer-arith              \
+           -fstack-protector-strong -fno-common
 LDFLAGS := -lm
 
 SRC_DIR   := src
