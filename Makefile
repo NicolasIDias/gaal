@@ -16,7 +16,7 @@ SRC_VEC2   := $(SRC_DIR)/vec2.c
 
 SRC_OBJS  := $(SRC_DIR)/vec2.o $(SRC_DIR)/vec3.o $(SRC_DIR)/mat4.o
 
-TEST_SRCS := $(wildcard $(TEST_DIR)/vec3/test_*.c) $(wildcard $(TEST_DIR)/mat4/test_*.c)
+TEST_SRCS := $(wildcard $(TEST_DIR)/vec2/test_*.c) $(wildcard $(TEST_DIR)/vec3/test_*.c) $(wildcard $(TEST_DIR)/mat4/test_*.c)
 TEST_OBJS := $(TEST_SRCS:.c=.o)
 TESTS     := $(TEST_SRCS:.c=)
 
