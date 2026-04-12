@@ -10,9 +10,11 @@ LDFLAGS := -lm
 SRC_DIR   := src
 TEST_DIR  := tests
 
-SRC_VEC   := $(SRC_DIR)/vec3.c
-SRC_MAT   := $(SRC_DIR)/mat4.c
-SRC_OBJS  := $(SRC_DIR)/vec3.o $(SRC_DIR)/mat4.o
+SRC_VEC3   := $(SRC_DIR)/vec3.c
+SRC_MAT4   := $(SRC_DIR)/mat4.c
+SRC_VEC2   := $(SRC_DIR)/vec2.c
+
+SRC_OBJS  := $(SRC_DIR)/vec2.o $(SRC_DIR)/vec3.o $(SRC_DIR)/mat4.o
 
 TEST_SRCS := $(wildcard $(TEST_DIR)/vec3/test_*.c) $(wildcard $(TEST_DIR)/mat4/test_*.c)
 TEST_OBJS := $(TEST_SRCS:.c=.o)
@@ -41,6 +43,6 @@ clean:
 	rm -f $(TESTS) $(TEST_OBJS) $(SRC_OBJS)
 
 compile:
-	$(CC) $(CFLAGS) -c src/vec2.c -o /tmp/vec2.o
-	$(CC) $(CFLAGS) -c src/mat4.c -o /tmp/mat4.o
-	$(CC) $(CFLAGS) -c src/vec3.c -o /tmp/vec3.o
+	$(CC) $(CFLAGS) -c src/vec2.c -o src/vec2.o
+	$(CC) $(CFLAGS) -c src/mat4.c -o src/mat4.o
+	$(CC) $(CFLAGS) -c src/vec3.c -o src/vec3.o
