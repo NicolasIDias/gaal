@@ -1,6 +1,5 @@
 #pragma once
 
-#define VEC3_EPSILON 1e-5f
 
 typedef struct vec3
 {

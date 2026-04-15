@@ -1,4 +1,5 @@
 #include <rawmath/vec2.h>
+#include <rawmath/common.h>
 #include <math.h>
 #include <stdio.h>
 
