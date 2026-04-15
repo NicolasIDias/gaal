@@ -93,7 +93,7 @@ void vec2_normalize(vec2_t *v)
     float magnitude = vec2_magnitude(*v);
     if (magnitude > VEC2_EPSILON)
     {
-        float inv_magnitude = 1 / magnitude;
+        float inv_magnitude = 1.0f / magnitude;
         v->x *= inv_magnitude;
         v->y *= inv_magnitude;
     }
