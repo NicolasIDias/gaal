@@ -42,25 +42,15 @@ void mat4_sub(mat4_t *dest, const mat4_t *a, const mat4_t *b)
         dest->m[i] = a->m[i] - b->m[i];
 }
 
-// Nao e inplace
 void mat4_transpose(mat4_t *restrict dest, const mat4_t *restrict a)
 {
-    dest->m[MAT_IDX(0, 0)] = a->m[MAT_IDX(0, 0)];
-    dest->m[MAT_IDX(0, 1)] = a->m[MAT_IDX(1, 0)];
-    dest->m[MAT_IDX(0, 2)] = a->m[MAT_IDX(2, 0)];
-    dest->m[MAT_IDX(0, 3)] = a->m[MAT_IDX(3, 0)];
-    dest->m[MAT_IDX(1, 0)] = a->m[MAT_IDX(0, 1)];
-    dest->m[MAT_IDX(1, 1)] = a->m[MAT_IDX(1, 1)];
-    dest->m[MAT_IDX(1, 2)] = a->m[MAT_IDX(2, 1)];
-    dest->m[MAT_IDX(1, 3)] = a->m[MAT_IDX(3, 1)];
-    dest->m[MAT_IDX(2, 0)] = a->m[MAT_IDX(0, 2)];
-    dest->m[MAT_IDX(2, 1)] = a->m[MAT_IDX(1, 2)];
-    dest->m[MAT_IDX(2, 2)] = a->m[MAT_IDX(2, 2)];
-    dest->m[MAT_IDX(2, 3)] = a->m[MAT_IDX(3, 2)];
-    dest->m[MAT_IDX(3, 0)] = a->m[MAT_IDX(0, 3)];
-    dest->m[MAT_IDX(3, 1)] = a->m[MAT_IDX(1, 3)];
-    dest->m[MAT_IDX(3, 2)] = a->m[MAT_IDX(2, 3)];
-    dest->m[MAT_IDX(3, 3)] = a->m[MAT_IDX(3, 3)];
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            dest->m[MAT_IDX(i, j)] = a->m[MAT_IDX(j, i)];
+        }
+    }
 }
 
 void mat4_scale(mat4_t *dest, const mat4_t *a, float sx, float sy, float sz)
