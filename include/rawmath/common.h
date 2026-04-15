@@ -1,3 +1,5 @@
+#pragma once
+
 #define RM_PI 3.14159265358979323846f
 #define RM_TWO_PI 6.28318530717958647692f
 
