@@ -103,7 +103,7 @@ void vec3_normalize(vec3_t *v)
     float magnitude = vec3_magnitude(*v);
     if (magnitude > VEC3_EPSILON)
     {
-        float inv_magnitude = 1 / magnitude;
+        float inv_magnitude = 1.0f / magnitude;
         v->x *= inv_magnitude;
         v->y *= inv_magnitude;
         v->z *= inv_magnitude;
