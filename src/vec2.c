@@ -72,13 +72,14 @@ void vec2_negate(vec2_t *v)
     v->y *= -1;
 }
 
-void vec2_reflect(vec2_t *r, const vec2_t a, vec2_t b)
+void vec2_reflect(vec2_t *r, const vec2_t a, const vec2_t b)
 {
-    vec2_normalize(&b);
-    float p = 2.f * vec2_dot_product(a, b);
+    vec2_t normal = b;
+    vec2_normalize(&normal);
+    float p = 2.f * vec2_dot_product(a, normal);
 
-    r->x = a.x - p * b.x;
-    r->y = a.y - p * b.y;
+    r->x = a.x - p * normal.x;
+    r->y = a.y - p * normal.y;
 }
 
 vec2_t vec2_lerp(vec2_t a, vec2_t b, float t)
