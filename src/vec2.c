@@ -72,8 +72,9 @@ void vec2_negate(vec2_t *v)
     v->y *= -1;
 }
 
-void vec2_reflect(vec2_t *r, const vec2_t a, const vec2_t b)
+void vec2_reflect(vec2_t *r, const vec2_t a, vec2_t b)
 {
+    vec2_normalize(&b);
     float p = 2.f * vec2_dot_product(a, b);
 
     r->x = a.x - p * b.x;
