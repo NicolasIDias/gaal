@@ -120,11 +120,6 @@ int mat4_perspective(mat4_t *dest, float fov_y_rad, float aspect, float near, fl
 
     float far_sub_near = 1.0f / (far - near);
 
-    float A_x = near / right;
-    float A_y = near / top;
-    float A_z = -(far + near) * far_sub_near;
-    float B_z = -(2 * far * near) * far_sub_near;
-
     *dest = (mat4_t){0};
 
     dest->m[MAT_IDX(0, 0)] = near / right;
