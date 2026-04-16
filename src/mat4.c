@@ -125,23 +125,23 @@ int mat4_perspective(mat4_t *dest, float fov_y_rad, float aspect, float near, fl
     float A_z = -(far + near) * far_sub_near;
     float B_z = -(2 * far * near) * far_sub_near;
 
-    mat4_t mat = {0};
-    mat.m[MAT_IDX(0, 0)] = A_x;
-    mat.m[MAT_IDX(1, 1)] = A_y;
-    mat.m[MAT_IDX(2, 2)] = A_z;
-    mat.m[MAT_IDX(2, 3)] = B_z;
-    mat.m[MAT_IDX(3, 2)] = -1.0f;
+    *dest = (mat4_t){0};
 
-    *dest = mat;
+    dest->m[MAT_IDX(0, 0)] = near / right;
+    dest->m[MAT_IDX(1, 1)] = near / top;
+    dest->m[MAT_IDX(2, 2)] = -(far + near) * far_sub_near;
+    dest->m[MAT_IDX(2, 3)] = -(2 * far * near) * far_sub_near;
+    dest->m[MAT_IDX(3, 2)] = -1.0f;
+
     return 1;
 }
 
 int mat4_look_at(mat4_t *dest, vec3_t eye, vec3_t center, vec3_t up)
 {
-vec3_t F = vec3_sub(center, eye);
+    vec3_t F = vec3_sub(center, eye);
     if (vec3_magnitude_sq(F) <= (VEC3_EPSILON * VEC3_EPSILON))
     {
-        return 0; 
+        return 0;
     }
 
     vec3_normalize(&F);
@@ -149,7 +149,7 @@ vec3_t F = vec3_sub(center, eye);
     vec3_t R = vec3_cross_product(F, up);
     if (vec3_magnitude_sq(R) <= (VEC3_EPSILON * VEC3_EPSILON))
     {
-        return 0; 
+        return 0;
     }
 
     vec3_normalize(&R);
